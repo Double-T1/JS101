@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded",() => {
 
     //goal 2
     function addEventClose(button) {
-        button.addEventListener("click",function (){
-            this.parentNode.remove();
+        button.addEventListener("click",function (e){
+            e.target.parentNode.remove();
         })
     } 
     document.querySelectorAll(".closeBtn").forEach((button) => {

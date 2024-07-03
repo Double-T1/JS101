@@ -1,18 +1,18 @@
 // 程式碼寫這裡
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector("#searchForm");
-    const keyword = document.querySelector("#searchKeyword");
-    form.addEventListener('submit', (e) => {
+$().ready(() => {
+    const form = $("#searchForm");
+    const keyword = $("#searchKeyword");
+    form.submit((e) => {
         e.preventDefault();
 
-        const target = keyword.value.trim();
+        const target = keyword.val();
 
         const API = "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json";
-        fetch(API)
-            .then((res) => res.json())
-            .then((data) => {
-                const bikeList = document.querySelector(".siteList"); 
-                bikeList.innerHTML = "";
+        $.ajax({
+            url: API
+        }).done((data) => {
+                const bikeList = $(".siteList"); 
+                bikeList.empty();
                 
                 data
                     .filter((stop) => stop.ar.includes(target))
@@ -23,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                             <small class="text-muted">${stop.ar}</small>
                                         </li>`
                         
-                        bikeList.insertAdjacentHTML("beforeend",item);
+                        bikeList.append(item);
                     })
             })
-
     })
 })

@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const manageButton = function() {
         if (currentPic === 0) {
             prevButton.style.display = "none";
-        } else if (currentPic === 1) {
+        } else {
             prevButton.style.display = "block";
         } 
         
         if (currentPic === slides.length-1) {
             nextButton.style.display = "none";
-        } else if (currentPic === slides.length-2) {
+        } else {
             nextButton.style.display = "block";
         }
     }

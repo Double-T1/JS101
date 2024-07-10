@@ -1,0 +1,19 @@
+{
+  "name": "10-youbikeinalpine",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/esbuild src/app.js --bundle --outfile=dist/app.js --watch",
+    "build": "./node_modules/.bin/esbuild src/app.js --bundle --outfile=dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "alpinejs": "^3.14.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  }
+}

@@ -7,22 +7,21 @@
   <title>TODO App</title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="style.css">
-  <script src="//unpkg.com/alpinejs" defer></script>
-  <!-- <script src="app.js"></script> -->
+  <script src="dist/app.js" defer></script>
 </head>
 <body>
-  <main x-data="{test: '', tasks: [1,2,3]}" class="todo-app">
+  <main x-data="task" class="todo-app">
     <h1>TODO</h1>
     <div class="taskSection">
-      <input x-model="test" type="text" id="taskInput" value="">
-      <button id="addBtn" @click="tasks.push(test)">新增</button>
+      <input x-model="task" @keyup.enter="addTask" type="text" id="taskInput" value="">
+      <button id="addBtn" @click="addTask"}">新增</button>
     </div>
     <section>
       <ul class="todo-list">
         <template x-for="t in tasks">
           <li class="todo-item">
-            <span class="item" x-text="`待辦事項${t}`"></span>
-            <button class="closeBtn">X</button>
+            <span class="item" x-text="t.content"></span>
+            <button :data-id="t.id" class="closeBtn" @click="closeTask">X</button>
           </li>
         </template>
       </ul>

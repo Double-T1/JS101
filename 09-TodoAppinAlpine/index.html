@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO App</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="dist/app.js" defer></script>
+</head>
+<body>
+  <main x-data="task" class="todo-app">
+    <h1>TODO</h1>
+    <div class="taskSection">
+      <input x-model="task" @keyup.enter="addTask" type="text" id="taskInput" value="">
+      <button id="addBtn" @click="addTask"}">新增</button>
+    </div>
+    <section>
+      <ul class="todo-list">
+        <template x-for="t in tasks">
+          <li class="todo-item">
+            <span class="item" x-text="t.content"></span>
+            <button :data-id="t.id" class="closeBtn" @click="closeTask">X</button>
+          </li>
+        </template>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

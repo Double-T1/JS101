@@ -1,7 +1,7 @@
 import Alpine from 'alpinejs';
 
 Alpine.data("youbike", () => ({
-  target: '大安',
+  target: '',
   stations: [],
   search(e) {
     e.preventDefault();
@@ -14,6 +14,7 @@ Alpine.data("youbike", () => ({
           return addr.ar.includes(this.target);
         })
       }).then(filtered => {
+        this.target = "";
         this.stations = filtered.map(station => {
           return {
             address: station.ar,

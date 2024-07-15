@@ -3261,7 +3261,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
 
   // src/app.js
   module_default.data("youbike", () => ({
-    target: "\u5927\u5B89",
+    target: "",
     stations: [],
     search(e) {
       e.preventDefault();
@@ -3271,6 +3271,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           return addr.ar.includes(this.target);
         });
       }).then((filtered) => {
+        this.target = "";
         this.stations = filtered.map((station) => {
           return {
             address: station.ar,
